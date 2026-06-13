@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
+import React from "react";
 import { motion } from "motion/react";
 import { Heart, ArrowLeft } from "lucide-react";
 import bg from "@/assets/romantic-bg.jpg";
@@ -8,15 +8,7 @@ import polaroid2 from "@/assets/polaroid-2.jpeg";
 import polaroid3 from "@/assets/polaroid-3.jpeg";
 
 
-export const Route = createFileRoute("/carta")({
-  head: () => ({
-    meta: [
-      { title: "Feliz Dia dos Namorados ❤️" },
-      { name: "description", content: "Uma carta pra você, com todo meu amor." },
-    ],
-  }),
-  component: CartaPage,
-});
+
 
 const serif = { fontFamily: "'Playfair Display', Georgia, serif" } as const;
 
@@ -74,15 +66,16 @@ function Memorias() {
 }
 
 function CartaPage() {
-  const router = useRouter();
   const voltar = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (typeof window !== "undefined" && window.history.length > 1) {
-      router.history.back();
-    } else {
-      router.navigate({ to: "/" });
-    }
-  };
+  e.preventDefault();
+
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    window.location.href = "/";
+  }
+};
+ 
   return (
     <main className="relative min-h-screen overflow-hidden bg-background text-foreground">
       <img
@@ -93,14 +86,14 @@ function CartaPage() {
       <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background" />
 
       <div className="relative mx-auto max-w-2xl px-5 py-12 sm:py-16">
-        <Link
-          to="/"
+        <a
+          href="/"
           onClick={voltar}
           className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-foreground/60 transition-colors hover:text-primary"
         >
           <ArrowLeft className="h-3.5 w-3.5" />
           voltar
-        </Link>
+        </a>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -272,16 +265,17 @@ function CartaPage() {
         </motion.article>
 
         <div className="mt-10 flex justify-center">
-          <Link
-            to="/"
+          <a
+            href="/"
             onClick={voltar}
             className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-background/60 px-5 py-2 text-xs uppercase tracking-[0.3em] text-foreground/70 backdrop-blur-md transition-colors hover:border-primary/70 hover:text-primary"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             voltar ao site
-          </Link>
+          </a>
         </div>
       </div>
     </main>
   );
 }
+export default CartaPage;
