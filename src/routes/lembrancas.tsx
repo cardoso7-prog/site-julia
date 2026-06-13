@@ -6,7 +6,7 @@ import bg from "@/assets/romantic-bg.jpg";
 import rapunzelAsset from "@/assets/rapunzel.jpg";
 import cinderelaAsset from "@/assets/cinderela.jpg";
 import stitchAsset from "@/assets/stitch.jpg";
-import BacoAsset from "@/assets/baco.jpg";
+import BacoAsset from "@/assets/Baco.jpg";
 import felipeAsset from "@/assets/felipe.jpg";
 import reggaeAsset from "@/assets/reggae.jpg";
 import anaAsset from "@/assets/ana.jpg";
