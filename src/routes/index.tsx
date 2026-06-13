@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
 import { Heart, Music, Gift, Check, Sparkles, Calendar, MapPin } from "lucide-react";
-import bg from "@/assets/romantic-bg.jpg";
+import bg from "@/assets/nos-fundos.jpeg";
 import { Pedido } from "@/components/Pedido";
 
 export const Route = createFileRoute("/")({
@@ -253,8 +253,8 @@ function CartaNamorados() {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <Link
-          to="/carta"
+        <a
+          href="/carta"
           className="group relative block w-full overflow-hidden rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/20 via-background/60 to-background/40 p-8 text-left shadow-2xl shadow-primary/20 backdrop-blur-md transition-transform hover:-translate-y-1"
           style={serif}
         >
@@ -266,7 +266,7 @@ function CartaNamorados() {
             <p className="text-2xl sm:text-3xl">Feliz Dia dos Namorados ❤️</p>
             <p className="text-xs text-foreground/60">Toque para abrir</p>
           </div>
-        </Link>
+        </a>
       </motion.div>
     </section>
   );
@@ -318,13 +318,13 @@ function CaixaSurpresa() {
             animate={{ y: [0, -4, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <Link
-              to="/julia"
+            <a
+              href="/julia"
               className="relative flex h-32 w-32 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/60 shadow-2xl shadow-primary/40 transition-transform hover:scale-105 active:scale-95"
             >
               <Gift className="h-14 w-14 text-primary-foreground" />
               <div className="absolute -inset-1 -z-10 rounded-2xl bg-primary/40 blur-xl" />
-            </Link>
+            </a>
           </motion.div>
           <p className="mt-5 text-sm text-foreground/70">Toque para abrir o seu presentinho ✨</p>
         </div>
@@ -410,7 +410,11 @@ function Index() {
     [t],
   );
 
+
   return (
+ 
+  
+
     <>
       <AnimatePresence>
         {!entrou && (
@@ -427,7 +431,9 @@ function Index() {
       <Coracoes />
 
       {/* HERO */}
-      <section className="relative mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center px-5 py-16 text-center">
+      <section
+  className="relative mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center px-5 py-20 bg-cover bg-center bg-no-repeat"
+>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -487,8 +493,8 @@ function Index() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <Link
-            to="/lembrancas"
+          <a
+            href="/lembrancas"
             className="group relative block w-full overflow-hidden rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/20 via-background/60 to-background/40 p-8 text-left shadow-2xl shadow-primary/20 backdrop-blur-md transition-transform hover:-translate-y-1"
             style={serif}
           >
@@ -503,7 +509,7 @@ function Index() {
               </p>
               <p className="text-xs text-foreground/60">Toque para abrir</p>
             </div>
-          </Link>
+          </a>
         </motion.div>
       </section>
 
@@ -569,3 +575,4 @@ function Index() {
     </>
   );
 }
+export default Index;

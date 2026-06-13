@@ -23,12 +23,12 @@ function NotFoundComponent() {
           The page you're looking for doesn't exist or has been moved.
         </p>
         <div className="mt-6">
-          <Link
-            to="/"
+          <a
+            href="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Go home
-          </Link>
+          </a>
         </div>
       </div>
     </div>
@@ -126,16 +126,20 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <h1 style={{color:"red", fontSize:"100px"}}>TESTE</h1>
+    <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+      <img
+  src={nosFundo}
+  style={{ border: "10px solid red" }}
+  alt=""
+  className="absolute inset-0 h-full w-full scale-110 object-cover opacity-60 blur-xl"
+/>
+       <div className="absolute inset-0 bg-[oklch(0.18_0.08_300)]/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/25 via-primary/10 to-primary/30 mix-blend-overlay" />
+   
+   </div> 
       {/* Camada de fundo sutil com foto nossa — fica abaixo de todo o conteúdo */}
-      <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <img
-          src={nosFundo}
-          alt=""
-          className="absolute inset-0 h-full w-full scale-110 object-cover opacity-60 blur-xl"
-        />
-        <div className="absolute inset-0 bg-[oklch(0.18_0.08_300)]/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/25 via-primary/10 to-primary/30 mix-blend-overlay" />
-      </div>
+      
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

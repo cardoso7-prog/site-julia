@@ -1,16 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import React from "react";
 import { ArrowLeft } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export const Route = createFileRoute("/julia")({
-  head: () => ({
-    meta: [
-      { title: "Julia ♥" },
-      { name: "description", content: "Um coração feito do seu nome." },
-    ],
-  }),
-  component: JuliaPage,
-});
+
 
 const N = 64;
 
@@ -78,13 +70,14 @@ function JuliaPage() {
         </div>
       </div>
 
-      <Link
-        to="/"
+      <a
+        href="/"
         className="fixed left-4 top-4 z-10 inline-flex items-center gap-2 rounded-full border border-[#c084fc]/30 bg-black/60 px-3 py-2 text-xs uppercase tracking-[0.3em] text-[#c084fc]/80 backdrop-blur transition-colors hover:border-[#c084fc]/70 hover:text-[#c084fc]"
       >
         <ArrowLeft className="h-3.5 w-3.5" />
         voltar
-      </Link>
+      </a>
     </main>
   );
 }
+export default JuliaPage;

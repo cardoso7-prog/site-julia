@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
+import React from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { Heart, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
@@ -12,15 +12,7 @@ import reggaeAsset from "@/assets/reggae.jpg";
 import anaAsset from "@/assets/ana.jpg";
 import juliaVideo from "@/assets/julia-video.mp4";
 
-export const Route = createFileRoute("/lembrancas")({
-  head: () => ({
-    meta: [
-      { title: "Coisas que me fazem lembrar você" },
-      { name: "description", content: "Músicas, personagens e detalhes que sempre me levam até você." },
-    ],
-  }),
-  component: LembrancasPage,
-});
+
 
 const serif = { fontFamily: "'Playfair Display', Georgia, serif" } as const;
 
@@ -152,15 +144,15 @@ function Coracoes() {
 }
 
 function LembrancasPage() {
-  const router = useRouter();
-  const voltar = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (typeof window !== "undefined" && window.history.length > 1) {
-      router.history.back();
-    } else {
-      router.navigate({ to: "/" });
-    }
-  };
+ const voltar = (e: React.MouseEvent) => {
+  e.preventDefault();
+
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    window.location.href = "/";
+  }
+};
   const [i, setI] = useState(0);
   const total = ITEMS.length;
   const proxima = () => setI((p) => (p + 1) % total);
@@ -173,14 +165,14 @@ function LembrancasPage() {
       <Coracoes />
 
       <div className="relative mx-auto max-w-2xl px-5 py-10">
-        <Link
-          to="/"
+        <a
+          href="/"
           onClick={voltar}
           className="inline-flex items-center gap-2 text-sm text-primary transition-opacity hover:opacity-80"
         >
           <ArrowLeft className="h-4 w-4" />
           Voltar
-        </Link>
+        </a>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -287,3 +279,4 @@ function LembrancasPage() {
     </main>
   );
 }
+export default LembrancasPage;
