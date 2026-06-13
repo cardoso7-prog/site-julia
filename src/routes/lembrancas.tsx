@@ -6,7 +6,7 @@ import bg from "@/assets/romantic-bg.jpg";
 import rapunzelAsset from "@/assets/rapunzel.jpg";
 import cinderelaAsset from "@/assets/cinderela.jpg";
 import stitchAsset from "@/assets/stitch.jpg";
-import bacoAsset from "@/assets/baco.jpg";
+import BacoAsset from "@/assets/baco.jpg";
 import felipeAsset from "@/assets/felipe.jpg";
 import reggaeAsset from "@/assets/reggae.jpg";
 import anaAsset from "@/assets/ana.jpg";
@@ -60,7 +60,7 @@ const ITEMS: Item[] = [
     ],
   },
   {
-    src: bacoAsset,
+    src: BacoAsset,
     emoji: "🎵",
     titulo: "Baco Exu do Blues",
     citacao: "Você fez morada onde ninguém conseguia ficar.",
